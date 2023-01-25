@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
-  }
+  }, 
+  {
+    path: 'game1',
+    loadChildren: () => import('../games/game1/game1-routing.module').then(m =>
+    m.Game1PageRoutingModule)
+    },
 ];
 
 @NgModule({

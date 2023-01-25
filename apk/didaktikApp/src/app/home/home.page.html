@@ -1,10 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header id="jeder">BASAKUMEAK</ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -12,8 +6,17 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
+<div class="map-container">
     <div id="leafletMap"></div>
-  </div>
+    <ion-button *ngIf="hideButton" (click)="hasi()"color="tertiary" id="refreshButton">Hasi</ion-button>
+    <img *ngIf="hideEska" id="gif" (click)="isPlaying()" [src]="gif"  />
+</div>
+
+<div *ngIf="hideEska" class="bocadillo-cuadrado">
+  <p id="testua">Kaixo guztioi, eta ongi etorri esperientzia berri honetara.
+    Ni Eskarabilera naiz eta Basauriko leku interesgarri eta politenak ezagutzera eramango zaituztet. Sakatu Hasi botoia gure abentura elkarrekin hasi ahal izateko</p>
+  <ion-button  color="tertiary" [routerLink]="['game1']" id="cuadroHasi">Hasi</ion-button>
+
+</div>
+
 </ion-content>
