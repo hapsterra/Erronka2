@@ -6,13 +6,10 @@
  
 <ion-content>
   <div id="board">
-    <div id="img" #img *ngFor="let imagen of imagenesB">
-      <ion-img [src]="imagen" ></ion-img>
-    </div>
+   
   </div>
   <br>
   <div id="pieces">
-  <div id="imga" #imga *ngFor="let imagen of imagenesP" cdkDrag>
-    <ion-img [src]="imagen" (mousemove)="touchMove($event);"></ion-img>
-  </div></div>
+     
+  </div>
 </ion-content>
