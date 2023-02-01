@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { title } from 'process';
 
 @Component({
   selector: 'app-game1',
@@ -16,12 +17,13 @@ export class Game1Page implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   for (let r = 0; r < this.rows; r++) {
-      for (let c = 0; c < this.columns; c++) {
+   for (let r = 0; r < this.imagenesB.length; r++) {
+      
           //<img>
           let tile = document.createElement("img");
           tile.src = "../../../assets/imgs/blank.jpg";
-
+          tile.id="blank"+r
+          
           //DRAG FUNCTIONALITY
           tile.addEventListener("dragstart", this.dragStart); //click on image to drag
           tile.addEventListener("dragover", this.dragOver);   //drag an image
@@ -31,7 +33,7 @@ export class Game1Page implements OnInit {
           tile.addEventListener("dragend", this.dragEnd);      //after you completed dragDrop
 
           document.getElementById("board").append(tile);
-      }
+      
   }
 
 
@@ -55,6 +57,7 @@ export class Game1Page implements OnInit {
    for (let i = 0; i < pieces.length; i++) {
        let tile = document.createElement("img");
        tile.src = "../../../assets/imgs/" + pieces[i] + ".png";
+      tile.id = "piece"+pieces[i];
 
        //DRAG FUNCTIONALITY
        tile.addEventListener("dragstart", this.dragStart); //click on image to drag
@@ -65,12 +68,13 @@ export class Game1Page implements OnInit {
        tile.addEventListener("dragend", this.dragEnd);      //after you completed dragDrop
 
        document.getElementById("pieces").append(tile);
-
    }
   }
   
- dragStart() {
-   this.currTile = this; //this refers to image that was clicked on for dragging
+ dragStart(e) {
+  e.dataTransfer.setData("eserrece", e.target.src);
+  e.dataTransfer.setData("id", e.target.id);
+
 }
 
  dragOver(e) {
@@ -85,24 +89,51 @@ export class Game1Page implements OnInit {
 
 }
 
- dragDrop() {
-   this.otherTile = this; //this refers to image that is being dropped on
-}
-
- dragEnd() {
-   if (this.currTile.src.includes("blank")) {
-       return;
+ dragDrop(e) {
+   e.preventDefault();
+   let eserrece= e.dataTransfer.getData("eserrece");
+   let ide= e.dataTransfer.getData("id");
+   let caerImg = e.target.id;
+   let caerSrc=e.target.src;
+   let caer= document.getElementById(caerImg) as HTMLImageElement;
+   caer.src=eserrece;
+   let id= document.getElementById(ide) as HTMLImageElement;
+   id.src=caerSrc;
+   
+   let boardAr = [];
+   var board = document.querySelectorAll('#board > img') as unknown as HTMLImageElement; // get all children within container
+   //console.log(board);
+   for(let a=0;a<10;a++){
+      boardAr.push(board[a].src);
    }
-   console.log(this.otherTile.src)
-   let currImg = this.currTile.src;
-   let otherImg = this.otherTile.src;
-   this.currTile.src = otherImg;
-   //this.otherTile.src = currImg;
+   let temp=[];
+   for(let a=1;a<boardAr.length;a++){
+
+       temp.push(boardAr[a].substring(34,35));
+      
+   }  
+
+   let bukatu=true;
+   console.log(temp)
+
+   for (let i=0; i <=temp.length; i++) {
+      //console.log(temp[i])
+
+      if (temp[i]=i.toString()){
+         console.log(temp[i])
+         bukatu=false;
+      }
+   }
+   
+      //alert(bukatu)
+   if(bukatu){
+      alert("bukatuta")
+   }
+   //console.log(temp)
+
 
 }
-
-
-
-
-
+ dragEnd(e) {
+    e.preventDefault();
+}
 }
