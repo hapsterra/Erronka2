@@ -13,7 +13,49 @@ body {
   flex-wrap: wrap;
   
 }
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
+}
+#testua{
+  margin: 20px;
+  font-family: "Copperplate",monospace;
+
+}
+#cuadroHasi {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 5%;
+}
+.bocadillo-cuadrado {
+  position: relative;
+  top: 40%;
+  left: 10%;
+  height: 200px;
+  width: 300px;
+  background: white;
+  box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+}
+.bocadillo-cuadrado:before {
+  border: 25px solid white;
+  content: '';
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+  bottom: -48px;
+  left: calc(50% - 25px)
+}
+#gif{
+  position: absolute;
+  bottom: 0;
+  height: 30%;
+}
 #jeder{
   text-align: center;
   color: white;

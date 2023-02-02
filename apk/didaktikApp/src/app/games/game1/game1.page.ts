@@ -8,18 +8,22 @@ import { title } from 'process';
 })
 export class Game1Page implements OnInit {
    rows = 3;
+   hideEska=false;
+   imgGif = document.getElementById('gif') as HTMLImageElement;
    columns = 3;
    tmp:any;
+   gif:string="../../assets/eskarabilera_full.gif";
+
    imagenesP=["../../../assets/imgs/1.png","../../../assets/imgs/2.png","../../../assets/imgs/3.png","../../../assets/imgs/4.png","../../../assets/imgs/5.png","../../../assets/imgs/6.png","../../../assets/imgs/7.png","../../../assets/imgs/8.png","../../../assets/imgs/9.png"]
    imagenesB=["../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg"]
     currTile:any;
  otherTile:any;
   constructor() { }
+  static audioZor = new Audio('../../assets/zorionak.mp3');
 
   ngOnInit() {
    for (let r = 0; r < this.imagenesB.length; r++) {
       
-          //<img>
           let tile = document.createElement("img");
           tile.src = "../../../assets/imgs/blank.jpg";
           tile.id="blank"+r
@@ -31,7 +35,6 @@ export class Game1Page implements OnInit {
           tile.addEventListener("dragleave", this.dragLeave); //dragging an image away from another one
           tile.addEventListener("drop", this.dragDrop);       //drop an image onto another one
           tile.addEventListener("dragend", this.dragEnd);      //after you completed dragDrop
-
           document.getElementById("board").append(tile);
       
   }
@@ -102,37 +105,45 @@ export class Game1Page implements OnInit {
    
    let boardAr = [];
    var board = document.querySelectorAll('#board > img') as unknown as HTMLImageElement; // get all children within container
-   //console.log(board);
-   for(let a=0;a<10;a++){
+   console.log(board);
+   
+   for(let a=0;a<9;a++){
+      console.log(board[a].src);
       boardAr.push(board[a].src);
    }
    let temp=[];
-   for(let a=1;a<boardAr.length;a++){
-
+   for(let a=0;a<boardAr.length;a++){
        temp.push(boardAr[a].substring(34,35));
-      
-   }  
+       console.log(boardAr[a]);
+
+   }
+
+   let numberTemp=temp.map(function (value) {
+      return isNaN(value) ? 0 : Number(value);
+    });
 
    let bukatu=true;
-   console.log(temp)
+   console.log(numberTemp)
 
-   for (let i=0; i <=temp.length; i++) {
+   for (let i=0; i <numberTemp.length; i++) {
       //console.log(temp[i])
-
-      if (temp[i]=i.toString()){
-         console.log(temp[i])
-         bukatu=false;
-      }
+      var second_index=i+1
+      if(numberTemp[second_index] - numberTemp[i] < 0) {   
+         bukatu=false;}     
+      
    }
-   
-      //alert(bukatu)
-   if(bukatu){
-      alert("bukatuta")
+   if(bukatu){   
+      this.zorionak();
+  
    }
-   //console.log(temp)
-
 
 }
+zorionak(){
+       this.hideEska=true;
+   alert("zorionak");
+   Game1Page.audioZor.play();
+}
+
  dragEnd(e) {
     e.preventDefault();
 }
