@@ -7,7 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: Game1Page
-  }
+  }, {
+    path: 'mapa',
+    loadChildren: () => import('../../mapa/mapa-routing.module').then(m =>m.MapaPageRoutingModule)
+    },
 ];
 
 @NgModule({

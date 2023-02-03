@@ -5,17 +5,16 @@
   <body>
     <br>
     <div id="board"></div>
-    <br>
+    <br>        <img *ngIf="hideEska" id="gif" [src]="gif"/>
+
     <div id="pieces"></div>
 
 
-        <img *ngIf="hideEska" id="gif" [src]="gif"/>
 
-        <ion-button  color="tertiary" (click)="zorionak()" id="refreshButton">Bidali</ion-button>
+        <ion-button *ngIf="hideBut"  color="tertiary" (click)="zorionak()" id="refreshButton">Bidali</ion-button>
     <div *ngIf="hideEska" class="bocadillo-cuadrado">
-      <p id="testua">Kaixo guztioi, eta ongi etorri esperientzia berri honetara.
-        Ni Eskarabilera naiz eta Basauriko leku interesgarri eta politenak ezagutzera eramango zaituztet. Sakatu Hasi botoia gure abentura elkarrekin hasi ahal izateko</p>
-      <ion-button  color="tertiary" [routerLink]="['game1']" id="cuadroHasi">Bidali</ion-button>
+      <p id="testua">Oso ondo, zorionak. Sakatu behean duzun botoia hurrengo geralekura joateko. <br>Lehenengo tokia:<br> <br><b>ESKARABILERA</b></p>
+      <ion-button  color="tertiary" [routerLink]="['game1']" id="cuadroHasi">Aurrera</ion-button>
     
     </div>
 </body>

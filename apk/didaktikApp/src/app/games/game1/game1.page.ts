@@ -9,6 +9,8 @@ import { title } from 'process';
 export class Game1Page implements OnInit {
    rows = 3;
    hideEska=false;
+   hideBut=true;
+
    imgGif = document.getElementById('gif') as HTMLImageElement;
    columns = 3;
    tmp:any;
@@ -140,6 +142,7 @@ export class Game1Page implements OnInit {
 }
 zorionak(){
        this.hideEska=true;
+       this.hideBut=false;
    alert("zorionak");
    Game1Page.audioZor.play();
 }

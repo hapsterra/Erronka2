@@ -34,9 +34,9 @@ body {
 }
 .bocadillo-cuadrado {
   position: relative;
-  top: 40%;
+  bottom:  40%;
   left: 10%;
-  height: 200px;
+  height: 170px;
   width: 300px;
   background: white;
   box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
@@ -49,11 +49,11 @@ body {
   border-right-color: transparent;
   position: absolute;
   bottom: -48px;
-  left: calc(50% - 25px)
+  left: calc(60% - 25px)
 }
 #gif{
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   height: 30%;
 }
 #jeder{
