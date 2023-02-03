@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar id="top-toolbar" style="color: #fff">
+    <ion-title>game3</ion-title>
+  </ion-toolbar>
+  <canvas
+    style="
+      background-image: url(../../../assets/zurrakapotea.png);
+      background-repeat: no-repeat;
+    "
+    #myCanvas
+    (touchstart)="handleStart($event)"
+    (touchmove)="handleMove($event)"
+  ></canvas>
+  <ion-toolbar id="bottom-toolbar">
+    <ion-buttons left>
+      <button color="dark" ion-button icon-only (click)="clearCanvas()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="board"></div>
+  <br />
+  <div id="pieces"></div>
+  <ion-button color="tertiary" [routerLink]="['game3']" id="cuadroHasi"
+    >Bukatu</ion-button
+  >
+</ion-content>
