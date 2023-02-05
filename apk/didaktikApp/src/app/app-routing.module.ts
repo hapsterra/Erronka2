@@ -32,7 +32,11 @@ const routes: Routes = [
     path: 'mapa',
     loadChildren: () =>
       import('./mapa/mapa.module').then((m) => m.MapaPageModule),
+  },  {
+    path: 'game4',
+    loadChildren: () => import('./games/game4/game4.module').then( m => m.Game4PageModule)
   },
+
 ];
 
 @NgModule({
