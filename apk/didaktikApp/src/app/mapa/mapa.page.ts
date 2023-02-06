@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as L from 'leaflet';
 
 @Component({
@@ -8,27 +9,8 @@ import * as L from 'leaflet';
 })
 export class MapaPage implements OnInit {
 
-  listOfMarkers = [
-    {
-      lat: 41.1533,
-      lng: 20.1683,
-      link: 'https://medium.com/',
-      icon: '../../assets/icon/pointer.png',
-    },
-    {
-      lat: 41.4233,
-      lng: 20.2683,
-      link: 'https://github.com/',
-      icon: '../../assets/icon/pointer.png',
-    },
-    {
-      lat: 41.1833,
-      lng: 20.5083,
-      link: 'https://stackoverflow.com/',
-      icon: '../../assets/icon/pointer.png',
-    },
-  ];
-  constructor() {}
+
+  constructor(private router:Router) {}
 
   static audio = new Audio('../../assets/hasi.mp3');
 
@@ -39,7 +21,7 @@ export class MapaPage implements OnInit {
   leafletMap: any;
   lat: number = 43.23773675894636;
   lng: number = -2.889767201301909;
-  zoom: number = 20;
+  zoom: number = 16;
   
   loadLeafletMap() {
     this.leafletMap = new L.Map('leafletMap');
@@ -65,44 +47,65 @@ export class MapaPage implements OnInit {
       iconSize: [30, 40],
     });
 
-    let marker = L.marker([43.23773675894636, -2.889767201301909], {
-      icon: icon1,
-    })
-      .on(
-        'click',
-        (izena) => {
-          this.lekuaInfo();
-        },
-        this
-      )
-      .addTo(this.leafletMap);
+    let marker1 = L.marker([43.23773675894636, -2.889767201301909], { icon: icon1 }).addTo(
+      this.leafletMap      
+    );
+    var content1 = L.DomUtil.create('div','content1'),popup1 = L.popup().setContent(content1);
+    content1.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
+    L.DomEvent.addListener(content1, 'click', () => {
+      this.router.navigateByUrl('game3');
+    });
+     
       
-    let popup = L.popup().setContent('<h1>Eskarabilera</h1>');
-    
-    marker.bindPopup(popup);
-    
+        let marker2 = L.marker([43.23775412976203, -2.8939684222712314], { icon: icon1 }).addTo(
+          this.leafletMap      
+        );
+        var content2 = L.DomUtil.create('div','content2'),popup2 = L.popup().setContent(content2);
+    content2.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Astoak</h3>";
+    L.DomEvent.addListener(content2, 'click', () => {
+      this.router.navigateByUrl('game2');
+    });
+
+
+    let marker3 = L.marker([43.23411862816688, -2.8922257730479246], { icon: icon1 }).addTo(
+      this.leafletMap      
+    );
+    var content3 = L.DomUtil.create('div','content3'),popup3 = L.popup().setContent(content3);
+    content3.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Marienea eraikina</h3>";
+    L.DomEvent.addListener(content3, 'click', () => {
+      this.router.navigateByUrl('game3');
+    });
+
+    let marker4 = L.marker([43.23578635651078, -2.889453615374651], { icon: icon1 }).addTo(
+      this.leafletMap      
+    );
+    var content4 = L.DomUtil.create('div','content4'),popup4 = L.popup().setContent(content4);
+    content4.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko jaiak</h3>";
+    L.DomEvent.addListener(content4, 'click', () => {
+      this.router.navigateByUrl('game4');
+    });
+
+    let marker5 = L.marker([43.23724169834896, -2.88073205955769], { icon: icon1 }).addTo(
+      this.leafletMap      
+    );
+    var content5 = L.DomUtil.create('div','content5'),popup5 = L.popup().setContent(content5);
+    content5.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko jaiak</h3>";
+    L.DomEvent.addListener(content5, 'click', () => {
+      this.router.navigateByUrl('game5');
+    });
+
+    marker1.bindPopup(popup1);
+    marker2.bindPopup(popup2);
+    marker3.bindPopup(popup3);
+    marker4.bindPopup(popup4);
+    marker5.bindPopup(popup5);
+
+
   }
 
   lekuaInfo() {
     
   }
-
-  hasi(){
-    
-    this.hideButton = false;
-    this.leafletMap.dragging.enable();
-    this.leafletMap.touchZoom.enable();
-    this.leafletMap.doubleClickZoom.enable();
-    this.leafletMap.scrollWheelZoom.enable();
-    this.leafletMap.boxZoom.enable();
-    this.leafletMap.keyboard.enable();
-    this.hideEska=true;
-   
-        
-        
-  }
-
-
 
   ngOnInit(): void {
     this.hideButton=true;

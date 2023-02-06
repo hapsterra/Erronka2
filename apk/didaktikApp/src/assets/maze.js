@@ -4,6 +4,7 @@ var modal = document.getElementById('myModal');
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
+/*
 modelfungo = function() {
     console.log("func called")
     modal.style.display = "block";
@@ -11,15 +12,17 @@ modelfungo = function() {
     x.textContent = "Game Over"
 
 }
+*/
 
 modelfunwin = function() {
     console.log("func called")
     modal.style.display = "block";
-    x = document.querySelector(".gamehead");
-    x.textContent = "Zorionak irabazi duzu!"
+    audioZor = new Audio('assets/zorionak.mp3');
+    audioZor.play();
 
+   
 }
-
+/*
 document.getElementById("demo").addEventListener("click", myFunction);
 
 function myFunction() {
@@ -30,7 +33,7 @@ function myFunction() {
 span.onclick = function() {
     modal.style.display = "none";
 }
-
+*/
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -242,7 +245,7 @@ var maze = function (X, Y) {
         temp = []
         if (this.canvas.getContext) {
             this.ctx = this.canvas.getContext('2d');
-            this.Board[1][0] = '$'
+            this.Board[2][0] = '$'
             for (var i = 0; i < 2 * this.N + 1; i++) {
                 for (var j = 0; j < 2 * this.M + 1; j++) {
                     if (this.Board[i][j] != ' '){//} && this.Board[i][j] != '&') {
@@ -380,7 +383,7 @@ var maze = function (X, Y) {
 
 };
 
-m = new maze(10 , 10);
+m = new maze(10, 10);
 m.init();
 m.add_edges();
 m.gen_maze();

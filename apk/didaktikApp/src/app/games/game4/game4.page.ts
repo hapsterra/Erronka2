@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Game4Page implements OnInit {
   myScriptElement: HTMLScriptElement;
+  gif:string="../../assets/eskarabilera_full.gif";
+
   constructor() {
     this.myScriptElement = document.createElement("script");      
     this.myScriptElement.src = "../../../assets/maze.js";

@@ -1,36 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>game4</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header id="jeder">BASAKUMEAK</ion-header>
 
+ 
 <ion-content>
 
   <section>
     <div id="wrapper" style="margin-left:auto; margin-right:auto;">
         <div id="maze">
-            <div id="c" style="margin-left:auto; margin-right:auto;margin-bottom: 10px;text-align: center;width: 10%;font-size: large"></div>
+            <div id="c" style="margin-left:auto; margin-right:auto;margin-bottom: 10px;text-align: center;width: 50%;font-size: large"></div>
 
             <canvas id="canvas" width="523" height="523" style="margin-left:auto; margin-right:auto">
             This text is displayed if your browser does not support HTML5 Canvas.
         </canvas>
-            <div id="timerel" style="margin-left:auto; margin-right:auto;margin-top:0px;text-align: center;width: 15%;font-size: large"></div>
+            <div id="timerel" style="margin-left:auto; margin-right:auto;margin-top:0px;text-align: center;width: 50%;font-size: large"></div>
 
         </div>
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
 
+                
             <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2 class="gamehead"></h2>
+          
+            <div  class="bocadillo-cuadrado">
+                        <p id="testua">Oso ondo, zorionak. Sakatu behean duzun botoia hurrengo geralekura joateko. <br>Lehenengo tokia:<br> <br><b>ESKARABILERA</b></p>
+                        <ion-button  color="tertiary" [routerLink]="['mapa']" id="cuadroHasi">Aurrera</ion-button>  
                 </div>
-                <div class="modal-footer">
-                    <h2 id="demo" onmouseover="" style="cursor:pointer;">Play Again?</h2>
-                </div>
-            </div>
+                <img  id="gif" [src]="gif"/>
 
         </div>
 
