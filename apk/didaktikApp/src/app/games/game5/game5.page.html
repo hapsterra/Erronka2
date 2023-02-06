@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>game5</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  
+     <div>
+      <div>
+        <h1>{{ pregunta }}</h1>
+      </div>
+      <div>
+        <div><p class="answ" id="1" (click)="check1()">{{ r1 }}</p></div>
+        <div><p class="answ" id="1" (click)="check2()">{{ r2 }}</p></div>
+        <div><p class="answ" id="1" (click)="check3()">{{ r3 }}</p></div>
+      </div>
+      <div>
+        Puntuak {{ score }}
+      </div>
+     </div>
+
+</ion-content>
