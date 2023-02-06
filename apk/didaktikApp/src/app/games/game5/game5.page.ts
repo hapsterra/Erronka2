@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'game5.page.html'
 })
-export class Game5Page {
+export class Game5Page implements OnInit{
 
   questions: any[] = [
     {
@@ -44,7 +44,9 @@ export class Game5Page {
 
   constructor(
   ) {}
-
+  ngOnInit() {
+    this.showQuestion()
+  }
   showQuestion(){
     if (this.question<=2){
       let q = this.questions[this.question];
