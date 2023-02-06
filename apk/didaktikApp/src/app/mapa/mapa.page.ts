@@ -12,7 +12,7 @@ export class MapaPage implements OnInit {
 
   constructor(private router:Router) {}
 
-  static audio = new Audio('../../assets/hasi.mp3');
+   audio = new Audio('../../assets/ESKARABILERA.mp3');
 
   hideButton=false;
   hideEska=false;
@@ -53,6 +53,7 @@ export class MapaPage implements OnInit {
     var content1 = L.DomUtil.create('div','content1'),popup1 = L.popup().setContent(content1);
     content1.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
     L.DomEvent.addListener(content1, 'click', () => {
+      this.audio.play();
       this.router.navigateByUrl('game3');
     });
      
