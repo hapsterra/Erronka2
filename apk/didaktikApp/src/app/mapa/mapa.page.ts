@@ -58,7 +58,7 @@ export class MapaPage implements OnInit {
       this.leafletMap      
     );
     var content1 = L.DomUtil.create('div','content1'),popup1 = L.popup().setContent(content1);
-    content1.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
+    content1.innerHTML = "            <img  id='gif' src='../../assets/zurra.jpg'/>  <br><br>  <h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
     L.DomEvent.addListener(content1, 'click', () => {
       this.router.navigateByUrl('game3');
 
@@ -69,7 +69,7 @@ export class MapaPage implements OnInit {
           this.leafletMap      
         );
         var content2 = L.DomUtil.create('div','content2'),popup2 = L.popup().setContent(content2);
-    content2.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Astoak</h3>";
+    content2.innerHTML = "<img  id='burros' src='../../assets/burros.jpg'/>  <br><br> <h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Astoak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>";
     L.DomEvent.addListener(content2, 'click', () => {
       this.router.navigateByUrl('game2');
     });
@@ -79,7 +79,7 @@ export class MapaPage implements OnInit {
       this.leafletMap      
     );
     var content3 = L.DomUtil.create('div','content3'),popup3 = L.popup().setContent(content3);
-    content3.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Marienea eraikina</h3>";
+    content3.innerHTML = "<img   src='../../assets/marienea.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Marienea eraikina</h3>";
     L.DomEvent.addListener(content3, 'click', () => {
       this.router.navigateByUrl('game3');
     });
@@ -88,7 +88,7 @@ export class MapaPage implements OnInit {
       this.leafletMap      
     );
     var content4 = L.DomUtil.create('div','content4'),popup4 = L.popup().setContent(content4);
-    content4.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko jaiak</h3>";
+    content4.innerHTML = "<img   src='../../assets/zurra.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko plaza</h3>";
     L.DomEvent.addListener(content4, 'click', () => {
       this.router.navigateByUrl('game4');
     });
@@ -97,7 +97,7 @@ export class MapaPage implements OnInit {
       this.leafletMap      
     );
     var content5 = L.DomUtil.create('div','content5'),popup5 = L.popup().setContent(content5);
-    content5.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko jaiak</h3>";
+    content5.innerHTML = "<img   src='../../assets/zurra.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Arizko dorretxea</h3>";
     L.DomEvent.addListener(content5, 'click', () => {
       this.router.navigateByUrl('game5');
     });
