@@ -12,11 +12,11 @@ export class MapaPage implements OnInit {
 
   constructor(private router:Router) {}
 
-   audio = new Audio('../../assets/ESKARABILERA.mp3');
    audioZurra = new Audio('../../assets/ZURRAKAPOTEA.mp3');
    audioAstoak = new Audio('../../assets/LOS-BURROS.mp3');
    audioMarien = new Audio('../../assets/MARIENEA.mp3');
    audioSanfaust = new Audio('../../assets/SAN-FAUSTO.mp3');
+   audioAriz = new Audio('../../assets/ARIZKO-DORRETXEA.mp3');
 
 
 
@@ -88,7 +88,7 @@ export class MapaPage implements OnInit {
       this.leafletMap      
     );
     var content4 = L.DomUtil.create('div','content4'),popup4 = L.popup().setContent(content4);
-    content4.innerHTML = "<img   src='../../assets/zurra.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko plaza</h3>";
+    content4.innerHTML = "<img   src='../../assets/sanfausto.jpeg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko plaza</h3>";
     L.DomEvent.addListener(content4, 'click', () => {
       this.router.navigateByUrl('game4');
     });
@@ -97,7 +97,7 @@ export class MapaPage implements OnInit {
       this.leafletMap      
     );
     var content5 = L.DomUtil.create('div','content5'),popup5 = L.popup().setContent(content5);
-    content5.innerHTML = "<img   src='../../assets/zurra.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Arizko dorretxea</h3>";
+    content5.innerHTML = "<img   src='../../assets/ariz.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Arizko dorretxea</h3>";
     L.DomEvent.addListener(content5, 'click', () => {
       this.router.navigateByUrl('game5');
     });
@@ -111,7 +111,7 @@ export class MapaPage implements OnInit {
 
   lekuaMarker1() {
 
-  this.audio.play();
+  this.audioZurra.play();
   this.hideEska=true;
   }
 
@@ -121,22 +121,22 @@ export class MapaPage implements OnInit {
 
   lekuaMarker2() {
     
-  this.audioZurra.play();
+  this.audioAstoak.play();
   this.hideEska=true;
   }
   lekuaMarker3() {
     
-  this.audioAstoak.play();
+  this.audioMarien.play();
   this.hideEska=true;
   }
   lekuaMarker4() {
     
-  this.audioMarien.play();
+  this.audioSanfaust.play();
   this.hideEska=true;
   }
   lekuaMarker5() {
     
-  this.audioSanfaust.play();
+  this.audioAriz.play();
   this.hideEska=true;
   }
   ngOnInit(): void {

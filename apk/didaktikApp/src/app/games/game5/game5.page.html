@@ -1,17 +1,27 @@
 <ion-header id="jeder">BASAKUMEAK</ion-header>
  
 <ion-content>
+
+  <h3>Erantzun honako galderak jokoa bukatzeko!</h3>
+    <br>
      <div class="cont">
       <div>
         <h1>{{ pregunta }}</h1>
       </div>
-      <div>
-        <div><p class="answ" id="1" (click)="check1()">{{ r1 }}</p></div>
+      <div id="ans">
+        <div id="btn"><p class="answ" id="1" (click)="check1()">{{ r1 }}</p></div>
         <div><p class="answ" id="1" (click)="check2()">{{ r2 }}</p></div>
         <div><p class="answ" id="1" (click)="check3()">{{ r3 }}</p></div>
       </div>
       <div>
         Puntuak {{ score }}
       </div>
+      <br>        
+      
      </div>
+  <div *ngIf="hideEska" class="bocadillo-cuadrado">
+        <p id="testua">Bueno, bueno, bueno, neska-mutilok, bikain egin duzue.Eskerrikasko eta laister egongo gara elkarrekin <br>Lehenengo tokia:<br> <br><b>ESKARABILERA</b></p>
+        <ion-button  color="tertiary" [routerLink]="['home']" id="cuadroHasi">Bukatu</ion-button>
+      
+      </div><img *ngIf="hideEska" id="gif" [src]="gif"/>
 </ion-content>

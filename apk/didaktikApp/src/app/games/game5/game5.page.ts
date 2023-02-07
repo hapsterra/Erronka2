@@ -7,6 +7,8 @@ import { NavController, AlertController } from '@ionic/angular';
   styleUrls: ['./game5.page.scss']
 })
 export class Game5Page implements OnInit{
+  hideEska=false;
+  gif:string="../../assets/eskarabilera_full.gif";
 
   questions: any[] = [
     {
@@ -68,7 +70,8 @@ export class Game5Page implements OnInit{
       this.question++;
     }else{
       //fin();
-      alert("FIN");
+      this.hideEska=true;
+
     }
     
   }
