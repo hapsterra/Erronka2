@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header id="jeder">BASAKUMEAK
   <ion-toolbar id="top-toolbar" style="color: #fff">
-    <ion-title>game2</ion-title>
+    <ion-title>BASAKUMEAK</ion-title>
     <ion-buttons left>
       <button
         *ngFor="let colour of availableColours"
@@ -11,60 +11,53 @@
         <ion-icon [style.color]="colour" name="brush"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons right>
-      <button
-        style="border: 1px solid #cecece"
-        ion-button
-        icon-only
-        (click)="changeColour('#fff')"
-      >
-        <ion-icon style="color: #fff" name="square"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-  <canvas
-    style="
-      background-image: url('../../../assets/Astoa.jpg');
-      background-repeat: no-repeat;
-    "
-    #myCanvas
-    (touchstart)="handleStart($event)"
-    (touchmove)="handleMove($event)"
-  ></canvas>
-  <ion-toolbar id="bottom-toolbar">
-    <ion-buttons left>
-      <button color="dark" ion-button icon-only (click)="clearCanvas()">
-        <ion-icon name="trash"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-buttons right>
-      <button color="dark" ion-button icon-only (click)="changeSize(5)">
-        <ion-icon style="font-size: 0.25em" name="radio-button-on"></ion-icon>
-      </button>
-      <button color="dark" ion-button icon-only (click)="changeSize(10)">
-        <ion-icon style="font-size: 0.5em" name="radio-button-on"></ion-icon>
-      </button>
-      <button color="dark" ion-button icon-only (click)="changeSize(20)">
-        <ion-icon style="font-size: 1em" name="radio-button-on"></ion-icon>
-      </button>
-      <button color="dark" ion-button icon-only (click)="changeSize(50)">
-        <ion-icon style="font-size: 2em" name="radio-button-on"></ion-icon>
-      </button>
-      <button color="dark" ion-button icon-only (click)="changeSize(200)">
-        <ion-icon style="font-size: 3em" name="radio-button-on"></ion-icon>
-      </button>
-      <ion-button color="tertiary" [routerLink]="['game3']" id="cuadroHasi"
-        >Hasi</ion-button
-      >
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div id="board"></div>
-  <br />
-  <div id="pieces"></div>
-  <ion-button color="tertiary" [routerLink]="['game3']" id="cuadroHasi"
-    >Bukatu</ion-button
-  >
-</ion-content>
+  <body>
+    <br />
+    <img *ngIf="hideEska" id="gif" [src]="gif" />
+    <canvas
+      #myCanvas
+      (touchstart)="handleStart($event)"
+      (touchmove)="handleMove($event)"
+    ></canvas>
+    <ion-toolbar id="bottom-toolbar">
+      <ion-buttons left>
+        <button color="dark" ion-button icon-only (click)="clearCanvas()">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons right>
+        <button color="dark" ion-button icon-only (click)="changeSize(5)">
+          <ion-icon style="font-size: 0.25em" name="radio-button-on"></ion-icon>
+        </button>
+        <button color="dark" ion-button icon-only (click)="changeSize(10)">
+          <ion-icon style="font-size: 0.5em" name="radio-button-on"></ion-icon>
+        </button>
+        <button color="dark" ion-button icon-only (click)="changeSize(20)">
+          <ion-icon style="font-size: 1em" name="radio-button-on"></ion-icon>
+        </button>
+        <button color="dark" ion-button icon-only (click)="changeSize(50)">
+          <ion-icon style="font-size: 2em" name="radio-button-on"></ion-icon>
+        </button>
+        <button color="dark" ion-button icon-only (click)="changeSize(200)">
+          <ion-icon style="font-size: 3em" name="radio-button-on"></ion-icon>
+        </button>
+        <ion-button color="tertiary" (click)="zorionak()" id="cuadroHasi"
+          >Bukatu</ion-button
+        >
+      </ion-buttons>
+    </ion-toolbar>
+    <div *ngIf="hideEska" class="bocadillo-cuadrado">
+      <p id="testua">
+        Oso ondo, zorionak. Sakatu behean duzun botoia hurrengo geralekura
+        joateko. <br />Bigarren tokia:<br />
+        <br /><b>ESKARABILERA</b>
+      </p>
+      <ion-button color="tertiary" [routerLink]="['../mapa']" id="cuadroHasi"
+        >Jarraitu</ion-button
+      >
+    </div>
+  </body></ion-content
+>

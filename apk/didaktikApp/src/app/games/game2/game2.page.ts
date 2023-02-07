@@ -8,6 +8,12 @@ import { Platform } from '@ionic/angular';
 })
 export class Game2Page {
   @ViewChild('myCanvas') canvas: any;
+  rows = 3;
+  hideEska = false;
+  imgGif = document.getElementById('gif') as HTMLImageElement;
+  columns = 3;
+  tmp: any;
+  gif: string = '../../assets/eskarabilera_full.gif';
 
   canvasElement: any;
   lastX: number | undefined;
@@ -21,19 +27,27 @@ export class Game2Page {
     console.log('Hello CanvasDraw Component');
     this.availableColours = [
       '#1abc9c',
-      '#3498db',
-      '#9b59b6',
+      '#b3b1b1',
+      '#d9a0b9',
       '#e67e22',
-      '#e74c3c',
+      '#ffffff',
     ];
   }
+  static audioZor = new Audio('../../assets/zorionak.mp3');
 
   ngAfterViewInit() {
     this.canvasElement = this.canvas.nativeElement;
 
-    this.renderer.setAttribute(this.canvasElement,'width',this.platform.width() + '');
-    this.renderer.setAttribute(this.canvasElement,'height',this.platform.height() + '');
-
+    this.renderer.setAttribute(
+      this.canvasElement,
+      'width',
+      this.platform.width() + ''
+    );
+    this.renderer.setAttribute(
+      this.canvasElement,
+      'height',
+      this.platform.height() + ''
+    );
   }
 
   changeColour(colour: string) {
@@ -64,5 +78,10 @@ export class Game2Page {
   clearCanvas() {
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+  }
+  zorionak() {
+    this.hideEska = true;
+    alert('zorionak');
+    Game2Page.audioZor.play();
   }
 }

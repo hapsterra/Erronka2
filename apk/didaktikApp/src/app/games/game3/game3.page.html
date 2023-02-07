@@ -1,30 +1,36 @@
 <ion-header>
   <ion-toolbar id="top-toolbar" style="color: #fff">
-    <ion-title>game3</ion-title>
-  </ion-toolbar>
-  <canvas
-    style="
-      background-image: url(../../../assets/zurrakapotea.png);
-      background-repeat: no-repeat;
-    "
-    #myCanvas
-    (touchstart)="handleStart($event)"
-    (touchmove)="handleMove($event)"
-  ></canvas>
-  <ion-toolbar id="bottom-toolbar">
-    <ion-buttons left>
-      <button color="dark" ion-button icon-only (click)="clearCanvas()">
-        <ion-icon name="trash"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title>Zurrakapotea</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div id="board"></div>
-  <br />
-  <div id="pieces"></div>
-  <ion-button color="tertiary" [routerLink]="['game3']" id="cuadroHasi"
-    >Bukatu</ion-button
-  >
-</ion-content>
+  <body>
+    <br />
+    <img *ngIf="hideEska" id="gif" [src]="gif" />
+    <canvas
+      #myCanvas
+      (touchstart)="handleStart($event)"
+      (touchmove)="handleMove($event)"
+    ></canvas>
+    <ion-toolbar id="bottom-toolbar">
+      <ion-buttons left>
+        <button color="dark" ion-button icon-only (click)="clearCanvas()">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+        <ion-button color="tertiary" (click)="zorionak()" id="cuadroHasi"
+          >Bukatu</ion-button
+        >
+      </ion-buttons>
+    </ion-toolbar>
+    <div *ngIf="hideEska" class="bocadillo-cuadrado">
+      <p id="testua">
+        Oso ondo, zorionak. Sakatu behean duzun botoia hurrengo geralekura
+        joateko. <br />Hirugarren tokia:<br />
+        <br /><b>ESKARABILERA</b>
+      </p>
+      <ion-button color="tertiary" [routerLink]="['../mapa']" id="cuadroHasi"
+        >Jarraitu</ion-button
+      >
+    </div>
+  </body></ion-content
+>

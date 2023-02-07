@@ -8,6 +8,12 @@ import { Platform } from '@ionic/angular';
 })
 export class Game3Page {
   @ViewChild('myCanvas') canvas: any;
+  rows = 3;
+  hideEska = false;
+  imgGif = document.getElementById('gif') as HTMLImageElement;
+  columns = 3;
+  tmp: any;
+  gif: string = '../../assets/eskarabilera_full.gif';
 
   canvasElement: any;
   lastX: number | undefined;
@@ -23,6 +29,8 @@ export class Game3Page {
       '#000000',
     ];
   }
+
+  static audioZor = new Audio('../../assets/zorionak.mp3');
 
   ngAfterViewInit() {
     this.canvasElement = this.canvas.nativeElement;
@@ -57,5 +65,10 @@ export class Game3Page {
   clearCanvas() {
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+  }
+  zorionak() {
+    this.hideEska = true;
+    alert('zorionak');
+    Game3Page.audioZor.play();
   }
 }
