@@ -245,7 +245,7 @@ var maze = function (X, Y) {
         temp = []
         if (this.canvas.getContext) {
             this.ctx = this.canvas.getContext('2d');
-            this.Board[2][0] = '$'
+            this.Board[1][0] = '$'
             for (var i = 0; i < 2 * this.N + 1; i++) {
                 for (var j = 0; j < 2 * this.M + 1; j++) {
                     if (this.Board[i][j] != ' '){//} && this.Board[i][j] != '&') {

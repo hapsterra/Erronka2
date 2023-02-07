@@ -9,6 +9,7 @@ import { NavController, AlertController } from '@ionic/angular';
 export class Game5Page implements OnInit{
   hideEska=false;
   gif:string="../../assets/eskarabilera_full.gif";
+   audioamaiera = new Audio('../../assets/amaiera.mp3');
 
   questions: any[] = [
     {
@@ -71,6 +72,7 @@ export class Game5Page implements OnInit{
     }else{
       //fin();
       this.hideEska=true;
+      this.audioamaiera.play()
 
     }
     
