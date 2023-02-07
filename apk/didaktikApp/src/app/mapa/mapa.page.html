@@ -1,18 +1,7 @@
 <ion-header id="jeder">BASAKUMEAK</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-<div class="map-container">
 
     <div id="leafletMap"></div> 
-    <img  id="gif" [src]="gif"/>
-
-</div>
-
-
-
+    <ion-img *ngIf="hideEska" slot="fixed" id="gif" [src]="gif"></ion-img>
 </ion-content>

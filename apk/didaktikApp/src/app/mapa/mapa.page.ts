@@ -13,6 +13,13 @@ export class MapaPage implements OnInit {
   constructor(private router:Router) {}
 
    audio = new Audio('../../assets/ESKARABILERA.mp3');
+   audioZurra = new Audio('../../assets/ZURRAKAPOTEA.mp3');
+   audioAstoak = new Audio('../../assets/LOS-BURROS.mp3');
+   audioMarien = new Audio('../../assets/MARIENEA.mp3');
+   audioSanfaust = new Audio('../../assets/SAN-FAUSTO.mp3');
+
+
+
    jif = document.getElementById('gif');
   hideButton=false;
   hideEska=false;
@@ -58,7 +65,7 @@ export class MapaPage implements OnInit {
     });
 
       
-        let marker2 = L.marker([43.23775412976203, -2.8939684222712314], { icon: icon1 }).addTo(
+        let marker2 = L.marker([43.23775412976203, -2.8939684222712314], { icon: icon1 }).on('click', () => { this.lekuaMarker2()}, this).addTo(
           this.leafletMap      
         );
         var content2 = L.DomUtil.create('div','content2'),popup2 = L.popup().setContent(content2);
@@ -68,7 +75,7 @@ export class MapaPage implements OnInit {
     });
 
 
-    let marker3 = L.marker([43.23411862816688, -2.8922257730479246], { icon: icon1 }).addTo(
+    let marker3 = L.marker([43.23411862816688, -2.8922257730479246], { icon: icon1 }).on('click', () => { this.lekuaMarker3()}, this).addTo(
       this.leafletMap      
     );
     var content3 = L.DomUtil.create('div','content3'),popup3 = L.popup().setContent(content3);
@@ -77,7 +84,7 @@ export class MapaPage implements OnInit {
       this.router.navigateByUrl('game3');
     });
 
-    let marker4 = L.marker([43.23578635651078, -2.889453615374651], { icon: icon1 }).addTo(
+    let marker4 = L.marker([43.23578635651078, -2.889453615374651], { icon: icon1 }).on('click', () => { this.lekuaMarker4()}, this).addTo(
       this.leafletMap      
     );
     var content4 = L.DomUtil.create('div','content4'),popup4 = L.popup().setContent(content4);
@@ -86,7 +93,7 @@ export class MapaPage implements OnInit {
       this.router.navigateByUrl('game4');
     });
 
-    let marker5 = L.marker([43.23724169834896, -2.88073205955769], { icon: icon1 }).addTo(
+    let marker5 = L.marker([43.23724169834896, -2.88073205955769], { icon: icon1 }).on('click', () => { this.lekuaMarker5()}, this).addTo(
       this.leafletMap      
     );
     var content5 = L.DomUtil.create('div','content5'),popup5 = L.popup().setContent(content5);
@@ -94,33 +101,43 @@ export class MapaPage implements OnInit {
     L.DomEvent.addListener(content5, 'click', () => {
       this.router.navigateByUrl('game5');
     });
+
     marker1.bindPopup(popup1);
     marker2.bindPopup(popup2);
     marker3.bindPopup(popup3);
     marker4.bindPopup(popup4);
     marker5.bindPopup(popup5);
-
-
   }
 
   lekuaMarker1() {
 
   this.audio.play();
   this.hideEska=true;
+  }
 
+  timer(){
+    this.hideEska=false;
   }
 
   lekuaMarker2() {
     
+  this.audioZurra.play();
+  this.hideEska=true;
   }
   lekuaMarker3() {
     
+  this.audioAstoak.play();
+  this.hideEska=true;
   }
   lekuaMarker4() {
     
+  this.audioMarien.play();
+  this.hideEska=true;
   }
   lekuaMarker5() {
     
+  this.audioSanfaust.play();
+  this.hideEska=true;
   }
   ngOnInit(): void {
     this.hideButton=true;
