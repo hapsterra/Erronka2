@@ -81,7 +81,7 @@ export class Game2Page {
   }
   zorionak() {
     this.hideEska = true;
-    alert('zorionak');
+    //alert('zorionak');
     Game2Page.audioZor.play();
   }
 }

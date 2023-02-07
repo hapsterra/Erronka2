@@ -143,7 +143,7 @@ export class Game1Page implements OnInit {
 zorionak(){
        this.hideEska=true;
        this.hideBut=false;
-   alert("zorionak");
+   //alert("zorionak");
    Game1Page.audioZor.play();
 }
 
