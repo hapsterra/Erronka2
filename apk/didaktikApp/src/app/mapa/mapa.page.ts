@@ -13,7 +13,7 @@ export class MapaPage implements OnInit {
   constructor(private router:Router) {}
 
    audio = new Audio('../../assets/ESKARABILERA.mp3');
-
+   jif = document.getElementById('gif');
   hideButton=false;
   hideEska=false;
    gif:string="../../assets/eskarabilera_full.gif";
@@ -47,16 +47,16 @@ export class MapaPage implements OnInit {
       iconSize: [30, 40],
     });
 
-    let marker1 = L.marker([43.23773675894636, -2.889767201301909], { icon: icon1 }).addTo(
+    let marker1 = L.marker([43.23773675894636, -2.889767201301909], { icon: icon1 }).on('click', () => { this.lekuaMarker1()}, this).addTo(
       this.leafletMap      
     );
     var content1 = L.DomUtil.create('div','content1'),popup1 = L.popup().setContent(content1);
     content1.innerHTML = "<h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
     L.DomEvent.addListener(content1, 'click', () => {
-      this.audio.play();
       this.router.navigateByUrl('game3');
+
     });
-     
+
       
         let marker2 = L.marker([43.23775412976203, -2.8939684222712314], { icon: icon1 }).addTo(
           this.leafletMap      
@@ -94,7 +94,6 @@ export class MapaPage implements OnInit {
     L.DomEvent.addListener(content5, 'click', () => {
       this.router.navigateByUrl('game5');
     });
-
     marker1.bindPopup(popup1);
     marker2.bindPopup(popup2);
     marker3.bindPopup(popup3);
@@ -104,10 +103,25 @@ export class MapaPage implements OnInit {
 
   }
 
-  lekuaInfo() {
-    
+  lekuaMarker1() {
+
+  this.audio.play();
+  this.hideEska=true;
+
   }
 
+  lekuaMarker2() {
+    
+  }
+  lekuaMarker3() {
+    
+  }
+  lekuaMarker4() {
+    
+  }
+  lekuaMarker5() {
+    
+  }
   ngOnInit(): void {
     this.hideButton=true;
     this.loadLeafletMap();

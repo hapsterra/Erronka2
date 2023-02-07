@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'game5.page.html'
+  selector: 'app-game5',
+  templateUrl: './game5.page.html',
+  styleUrls: ['./game5.page.scss']
 })
 export class Game5Page implements OnInit{
 
