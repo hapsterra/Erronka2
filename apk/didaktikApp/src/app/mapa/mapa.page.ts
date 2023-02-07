@@ -81,7 +81,7 @@ export class MapaPage implements OnInit {
     var content3 = L.DomUtil.create('div','content3'),popup3 = L.popup().setContent(content3);
     content3.innerHTML = "<img   src='../../assets/marienea.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Marienea eraikina</h3>";
     L.DomEvent.addListener(content3, 'click', () => {
-      this.router.navigateByUrl('game3');
+      this.router.navigateByUrl('game1');
     });
 
     let marker4 = L.marker([43.23578635651078, -2.889453615374651], { icon: icon1 }).on('click', () => { this.lekuaMarker4()}, this).addTo(
