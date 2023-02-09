@@ -12,11 +12,11 @@ export class MapaPage implements OnInit {
 
   constructor(private router:Router) {}
 
-   audioZurra = new Audio('../../assets/ZURRAKAPOTEA.mp3');
-   audioAstoak = new Audio('../../assets/LOS-BURROS.mp3');
-   audioMarien = new Audio('../../assets/MARIENEA.mp3');
-   audioSanfaust = new Audio('../../assets/SAN-FAUSTO.mp3');
-   audioAriz = new Audio('../../assets/ARIZKO-DORRETXEA.mp3');
+  static audioZurra = new Audio('../../assets/ZURRAKAPOTEA.mp3');
+  static audioAstoak = new Audio('../../assets/LOS-BURROS.mp3');
+  static audioMarien = new Audio('../../assets/MARIENEA.mp3');
+  static audioSanfaust = new Audio('../../assets/SAN-FAUSTO.mp3');
+  static audioAriz = new Audio('../../assets/ARIZKO-DORRETXEA.mp3');
 
 
 
@@ -60,7 +60,9 @@ export class MapaPage implements OnInit {
     var content1 = L.DomUtil.create('div','content1'),popup1 = L.popup().setContent(content1);
     content1.innerHTML = "            <img  id='gif' src='../../assets/zurra.jpg'/>  <br><br>  <h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
     L.DomEvent.addListener(content1, 'click', () => {
-      this.router.navigateByUrl('game3');
+      this.router.navigateByUrl('game3');      this.hideEska=false;
+      this.stopAudios()
+
 
     });
 
@@ -71,7 +73,10 @@ export class MapaPage implements OnInit {
         var content2 = L.DomUtil.create('div','content2'),popup2 = L.popup().setContent(content2);
     content2.innerHTML = "<img  id='burros' src='../../assets/burros.jpg'/>  <br><br> <h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Astoak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>";
     L.DomEvent.addListener(content2, 'click', () => {
-      this.router.navigateByUrl('game2');
+      this.router.navigateByUrl('game2');      
+      this.hideEska=false;
+      this.stopAudios()
+
     });
 
 
@@ -81,7 +86,10 @@ export class MapaPage implements OnInit {
     var content3 = L.DomUtil.create('div','content3'),popup3 = L.popup().setContent(content3);
     content3.innerHTML = "<img   src='../../assets/marienea.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Marienea eraikina</h3>";
     L.DomEvent.addListener(content3, 'click', () => {
-      this.router.navigateByUrl('game1');
+      this.router.navigateByUrl('game1');      
+      this.hideEska=false;
+      this.stopAudios()
+
     });
 
     let marker4 = L.marker([43.23578635651078, -2.889453615374651], { icon: icon1 }).on('click', () => { this.lekuaMarker4()}, this).addTo(
@@ -90,7 +98,10 @@ export class MapaPage implements OnInit {
     var content4 = L.DomUtil.create('div','content4'),popup4 = L.popup().setContent(content4);
     content4.innerHTML = "<img   src='../../assets/sanfausto.jpeg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>San faustoko plaza</h3>";
     L.DomEvent.addListener(content4, 'click', () => {
-      this.router.navigateByUrl('game4');
+      this.router.navigateByUrl('game4');      
+      this.hideEska=false;
+      this.stopAudios()
+
     });
 
     let marker5 = L.marker([43.23724169834896, -2.88073205955769], { icon: icon1 }).on('click', () => { this.lekuaMarker5()}, this).addTo(
@@ -99,6 +110,8 @@ export class MapaPage implements OnInit {
     var content5 = L.DomUtil.create('div','content5'),popup5 = L.popup().setContent(content5);
     content5.innerHTML = "<img   src='../../assets/ariz.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Arizko dorretxea</h3>";
     L.DomEvent.addListener(content5, 'click', () => {
+      this.hideEska=false;
+      this.stopAudios()
       this.router.navigateByUrl('game5');
     });
 
@@ -109,9 +122,25 @@ export class MapaPage implements OnInit {
     marker5.bindPopup(popup5);
   }
 
-  lekuaMarker1() {
+  stopAudios(){
+    MapaPage.audioZurra.pause();
+    MapaPage.audioZurra.currentTime=0;
 
-  this.audioZurra.play();
+    MapaPage.audioAstoak.pause();
+    MapaPage.audioAstoak.currentTime=0;
+
+    MapaPage.audioMarien.pause();
+    MapaPage.audioMarien.currentTime=0;
+
+    MapaPage.audioSanfaust.pause();
+    MapaPage.audioSanfaust.currentTime=0;
+
+    MapaPage.audioAriz.pause();
+    MapaPage.audioAriz.currentTime=0;
+  }
+
+  lekuaMarker1() {
+  MapaPage.audioZurra.play();
   this.hideEska=true;
   }
 
@@ -119,24 +148,22 @@ export class MapaPage implements OnInit {
     this.hideEska=false;
   }
 
-  lekuaMarker2() {
-    
-  this.audioAstoak.play();
+  lekuaMarker2() {  
+  MapaPage.audioAstoak.play();
   this.hideEska=true;
   }
   lekuaMarker3() {
-    
-  this.audioMarien.play();
+  MapaPage.audioMarien.play();
   this.hideEska=true;
   }
   lekuaMarker4() {
     
-  this.audioSanfaust.play();
+    MapaPage.audioSanfaust.play();
   this.hideEska=true;
   }
   lekuaMarker5() {
     
-  this.audioAriz.play();
+    MapaPage.audioAriz.play();
   this.hideEska=true;
   }
   ngOnInit(): void {
