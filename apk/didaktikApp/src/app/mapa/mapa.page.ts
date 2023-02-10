@@ -61,7 +61,7 @@ export class MapaPage implements OnInit {
     content1.innerHTML = "            <img  id='gif' src='../../assets/zurra.jpg'/>  <br><br>  <h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Zurrakapotea</h3>";
     L.DomEvent.addListener(content1, 'click', () => {
       this.router.navigateByUrl('game3');      this.hideEska=false;
-      this.stopAudios()
+      this.stopAudios(6)
 
 
     });
@@ -75,7 +75,7 @@ export class MapaPage implements OnInit {
     L.DomEvent.addListener(content2, 'click', () => {
       this.router.navigateByUrl('game2');      
       this.hideEska=false;
-      this.stopAudios()
+      this.stopAudios(6)
 
     });
 
@@ -88,7 +88,7 @@ export class MapaPage implements OnInit {
     L.DomEvent.addListener(content3, 'click', () => {
       this.router.navigateByUrl('game1');      
       this.hideEska=false;
-      this.stopAudios()
+      this.stopAudios(6)
 
     });
 
@@ -100,7 +100,7 @@ export class MapaPage implements OnInit {
     L.DomEvent.addListener(content4, 'click', () => {
       this.router.navigateByUrl('game4');      
       this.hideEska=false;
-      this.stopAudios()
+      this.stopAudios(6)
 
     });
 
@@ -111,10 +111,9 @@ export class MapaPage implements OnInit {
     content5.innerHTML = "<img   src='../../assets/ariz.jpg'/>  <br><br><h3 style='margin:-10px; font-weight:bold; color:#346eeb;'>Arizko dorretxea</h3>";
     L.DomEvent.addListener(content5, 'click', () => {
       this.hideEska=false;
-      this.stopAudios()
+      this.stopAudios(6)
       this.router.navigateByUrl('game5');
     });
-
     marker1.bindPopup(popup1);
     marker2.bindPopup(popup2);
     marker3.bindPopup(popup3);
@@ -122,8 +121,61 @@ export class MapaPage implements OnInit {
     marker5.bindPopup(popup5);
   }
 
-  stopAudios(){
-    MapaPage.audioZurra.pause();
+  stopAudios(audi:number){
+    switch (audi) {
+      case 1:
+
+      MapaPage.audioAstoak.pause();
+      MapaPage.audioAstoak.currentTime=0;
+  
+      MapaPage.audioMarien.pause();
+      MapaPage.audioMarien.currentTime=0;
+  
+      MapaPage.audioSanfaust.pause();
+      MapaPage.audioSanfaust.currentTime=0;
+      
+      MapaPage.audioAriz.pause();
+      MapaPage.audioAriz.currentTime=0;
+      break;
+      case 2:
+        MapaPage.audioZurra.pause();
+    MapaPage.audioZurra.currentTime=0;
+    MapaPage.audioMarien.pause();
+    MapaPage.audioMarien.currentTime=0;
+
+    MapaPage.audioSanfaust.pause();
+    MapaPage.audioSanfaust.currentTime=0;
+    
+    MapaPage.audioAriz.pause();
+    MapaPage.audioAriz.currentTime=0;
+    break;
+      case 3:
+        MapaPage.audioZurra.pause();
+    MapaPage.audioZurra.currentTime=0;
+
+    MapaPage.audioAstoak.pause();
+    MapaPage.audioAstoak.currentTime=0;
+    MapaPage.audioSanfaust.pause();
+    MapaPage.audioSanfaust.currentTime=0;
+    
+    MapaPage.audioAriz.pause();
+    MapaPage.audioAriz.currentTime=0;
+    break;
+    case 4:
+      MapaPage.audioZurra.pause();
+      MapaPage.audioZurra.currentTime=0;
+  
+      MapaPage.audioAstoak.pause();
+      MapaPage.audioAstoak.currentTime=0;
+  
+      MapaPage.audioMarien.pause();
+      MapaPage.audioMarien.currentTime=0;
+      MapaPage.audioAriz.pause();
+    MapaPage.audioAriz.currentTime=0;
+    
+        break;
+        case 5:
+          MapaPage.audioZurra.pause();
     MapaPage.audioZurra.currentTime=0;
 
     MapaPage.audioAstoak.pause();
@@ -134,12 +186,31 @@ export class MapaPage implements OnInit {
 
     MapaPage.audioSanfaust.pause();
     MapaPage.audioSanfaust.currentTime=0;
+          break;
+        case 6:
+          MapaPage.audioZurra.pause();
+    MapaPage.audioZurra.currentTime=0;
 
+    MapaPage.audioAstoak.pause();
+    MapaPage.audioAstoak.currentTime=0;
+
+    MapaPage.audioMarien.pause();
+    MapaPage.audioMarien.currentTime=0;
+
+    MapaPage.audioSanfaust.pause();
+    MapaPage.audioSanfaust.currentTime=0;
+    
     MapaPage.audioAriz.pause();
     MapaPage.audioAriz.currentTime=0;
+    break;
+      default:
+
+    }
+   
   }
 
   lekuaMarker1() {
+    this.stopAudios(1);
   MapaPage.audioZurra.play();
   this.hideEska=true;
   }
@@ -149,20 +220,26 @@ export class MapaPage implements OnInit {
   }
 
   lekuaMarker2() {  
+    this.stopAudios(2);
+
   MapaPage.audioAstoak.play();
   this.hideEska=true;
   }
   lekuaMarker3() {
+    this.stopAudios(3);
+
   MapaPage.audioMarien.play();
   this.hideEska=true;
   }
   lekuaMarker4() {
-    
+    this.stopAudios(4);
+
     MapaPage.audioSanfaust.play();
   this.hideEska=true;
   }
   lekuaMarker5() {
-    
+    this.stopAudios(5);
+
     MapaPage.audioAriz.play();
   this.hideEska=true;
   }
