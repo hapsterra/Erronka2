@@ -10,7 +10,7 @@ export class Game1Page implements OnInit {
    rows = 3;
    hideEska=false;
    hideBut=true;
-
+   bukatu=true;
    imgGif = document.getElementById('gif') as HTMLImageElement;
    columns = 3;
    tmp:any;
@@ -18,8 +18,10 @@ export class Game1Page implements OnInit {
 
    imagenesP=["../../../assets/imgs/1.png","../../../assets/imgs/2.png","../../../assets/imgs/3.png","../../../assets/imgs/4.png","../../../assets/imgs/5.png","../../../assets/imgs/6.png","../../../assets/imgs/7.png","../../../assets/imgs/8.png","../../../assets/imgs/9.png"]
    imagenesB=["../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg","../../../assets/imgs/blank.jpg"]
-    currTile:any;
- otherTile:any;
+   currTile:any;
+   otherTile:any;
+   static numberTemp:any = [];
+
   constructor() { }
   static audioZor = new Audio('../../assets/zorionak.mp3');
 
@@ -40,10 +42,6 @@ export class Game1Page implements OnInit {
           document.getElementById("board").append(tile);
       
   }
-
-
-
-
 
    let pieces = [];
    for (let i=1; i <= this.rows*this.columns; i++) {
@@ -71,12 +69,12 @@ export class Game1Page implements OnInit {
        tile.addEventListener("dragleave", this.dragLeave); //dragging an image away from another one
        tile.addEventListener("drop", this.dragDrop);       //drop an image onto another one
        tile.addEventListener("dragend", this.dragEnd);      //after you completed dragDrop
-
        document.getElementById("pieces").append(tile);
    }
   }
   
  dragStart(e) {
+   
   e.dataTransfer.setData("eserrece", e.target.src);
   e.dataTransfer.setData("id", e.target.id);
 
@@ -107,44 +105,42 @@ export class Game1Page implements OnInit {
    
    let boardAr = [];
    var board = document.querySelectorAll('#board > img') as unknown as HTMLImageElement; // get all children within container
-   console.log(board);
+   //console.log(board);
    
    for(let a=0;a<9;a++){
       console.log(board[a].src);
       boardAr.push(board[a].src);
    }
-   let temp=[];
+
+   var temp=[];
    for(let a=0;a<boardAr.length;a++){
        temp.push(boardAr[a].substring(34,35));
-       console.log(boardAr[a]);
-
+      // console.log(boardAr[a]);
    }
-
-   let numberTemp=temp.map(function (value) {
+   Game1Page.numberTemp=temp.map(function (value) {
       return isNaN(value) ? 0 : Number(value);
     });
+}
 
-   let bukatu=true;
-   console.log(numberTemp)
+zorionak(){
+    console.log(Game1Page.numberTemp)
 
-   for (let i=0; i <numberTemp.length; i++) {
+   this.bukatu=true;
+
+   for (let i=0; i <Game1Page.numberTemp.length; i++) {
       //console.log(temp[i])
       var second_index=i+1
-      if(numberTemp[second_index] - numberTemp[i] < 0) {   
-         bukatu=false;}     
+      if(Game1Page.numberTemp[second_index] - Game1Page.numberTemp[i] < 0) {   
+         this.bukatu=false;}     
       
    }
-   if(bukatu){   
-      this.zorionak();
-  
-   }
-
-}
-zorionak(){
-       this.hideEska=true;
+   if(this.bukatu){   
+  this.hideEska=true;
        this.hideBut=false;
    //alert("zorionak");
    Game1Page.audioZor.play();
+   }
+       
 }
 
  dragEnd(e) {

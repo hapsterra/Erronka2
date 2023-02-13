@@ -95,6 +95,21 @@ function doKeyDown(evt)
         evt.preventDefault(); // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
 }
 
+function moveup() {
+    m.moveup("canvas");
+}
+  
+  function movedown() {
+    m.movedown("canvas");
+}
+  
+  function moveleft() {
+    m.moveleft("canvas");
+}
+  
+function moveright() {
+    m.moveright("canvas");
+}
 
 var dsd = function (size) {
     this.N = size;
