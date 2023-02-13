@@ -41,7 +41,7 @@ export class Game3Page {
   }
 
   changeSize(size: number) {
-    this.brushSize = 3;
+    this.brushSize = 10;
   }
   handleStart(ev: any) {
     this.lastX = ev.touches[0].pageX;

@@ -1,8 +1,5 @@
-<ion-header>
-  <ion-toolbar id="top-toolbar" style="color: #fff">
-    <ion-title>Zurrakapotea</ion-title>
-  </ion-toolbar>
-</ion-header>
+
+<ion-header id="jeder">BASAKUMEAK</ion-header>
 <ion-content>
   <body>
     <br />
@@ -13,14 +10,18 @@
       (touchmove)="handleMove($event)"
     ></canvas>
     <ion-toolbar id="bottom-toolbar">
-      <ion-buttons left>
-        <button color="dark" ion-button icon-only (click)="clearCanvas()">
+        <button ion-button icon-only (click)="clearCanvas()">
           <ion-icon name="trash"></ion-icon>
         </button>
-        <ion-button color="tertiary" (click)="zorionak()" id="cuadroHasi"
+        <br>
+        <br>
+        <ion-button
+          color="tertiary"
+          (click)="zorionak()"
+          id="cuadroHasi"
+          style="width: 100px; height: 30px; margin-bottom: 30px"
           >Bukatu</ion-button
         >
-      </ion-buttons>
     </ion-toolbar>
     <div *ngIf="hideEska" class="bocadillo-cuadrado">
       <p id="testua">
