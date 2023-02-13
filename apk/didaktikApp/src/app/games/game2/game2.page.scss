@@ -1,18 +1,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background-color: silver;
 }
 
-#board {
-  width: 286px;
-  height: 286px;
-  border: 2px solid black;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
 .map-container {
   position: absolute;
   top: 0;
@@ -20,26 +10,23 @@ body {
   right: 0;
   bottom: 0;
 }
-#testua{
+
+#testua {
   margin: 20px;
-  font-family: "Copperplate",monospace;
+  font-family: "Copperplate", monospace;
 
 }
-#cuadroHasi {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 5%;
-}
+
 .bocadillo-cuadrado {
   position: relative;
-  bottom:  60%;
+  bottom: 60%;
   left: 20%;
   height: 170px;
   width: 300px;
   background: white;
   box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
 }
+
 .bocadillo-cuadrado:before {
   border: 25px solid white;
   content: '';
@@ -50,44 +37,35 @@ body {
   bottom: -48px;
   left: calc(60% - 25px)
 }
-#gif{
+
+#gif {
   position: absolute;
   bottom: 5%;
   height: 30%;
 }
-#jeder{
+
+#jeder {
   text-align: center;
   color: white;
   font-weight: bold;
-  font-family: "Copperplate",monospace;
-  font-size: 5px;
+  font-family: "Copperplate", monospace;
+  font-size: 25px;
   background-color: #5260ff;
-
 }
-#pieces {
-  width: 286px;
-  height: 286px;
-  border: 2px solid black;
 
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+ion-icon {
+  width: 20px;
+  height: 20px;
 }
 
 #top-toolbar {
   position: absolute;
   top: 0;
-  background-color: #5260ff;
-  text-align: center;
-  margin: auto;
 }
 
 #bottom-toolbar {
   position: absolute;
   bottom: 0;
-  background-color: #5260ff;
-  text-align: center;
-  margin: auto;
 }
 
 canvas {
@@ -100,4 +78,5 @@ canvas {
   background-size: contain;
   background-color: white;
   background-position: center center;
+  margin-top: -5px;
 }

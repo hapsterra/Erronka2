@@ -21,7 +21,7 @@ export class Game2Page {
 
   currentColour: string = '#1abc9c';
   availableColours: any;
-  brushSize: number = 10;
+  brushSize: number = 5;
 
   constructor(public platform: Platform, public renderer: Renderer2) {
     console.log('Hello CanvasDraw Component');

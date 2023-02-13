@@ -1,19 +1,19 @@
-<ion-header id="jeder">BASAKUMEAK
-  <ion-toolbar id="top-toolbar" style="color: #fff">
-    <ion-title>BASAKUMEAK</ion-title>
-    <ion-buttons left>
-      <button
-        *ngFor="let colour of availableColours"
-        icon-only
-        ion-button
-        (click)="changeColour(colour)"
-      >
-        <ion-icon [style.color]="colour" name="brush"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
+<ion-toolbar id="top-toolbar">
+  <ion-buttons
+    style="display: flex; justify-content: center; align-items: center"
+  >
+    <button
+      style="background-color: transparent"
+      *ngFor="let colour of availableColours"
+      icon-only
+      ion-button
+      (click)="changeColour(colour)"
+    >
+      <ion-icon [style.color]="colour" name="brush"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
   <body>
     <br />
     <img *ngIf="hideEska" id="gif" [src]="gif" />
@@ -23,31 +23,37 @@
       (touchmove)="handleMove($event)"
     ></canvas>
     <ion-toolbar id="bottom-toolbar">
-      <ion-buttons left>
-        <button color="dark" ion-button icon-only (click)="clearCanvas()">
+      <ion-buttons
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        <button ion-button icon-only (click)="clearCanvas()">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-buttons>
-      <ion-buttons right>
-        <button color="dark" ion-button icon-only (click)="changeSize(5)">
-          <ion-icon style="font-size: 0.25em" name="radio-button-on"></ion-icon>
-        </button>
-        <button color="dark" ion-button icon-only (click)="changeSize(10)">
-          <ion-icon style="font-size: 0.5em" name="radio-button-on"></ion-icon>
-        </button>
-        <button color="dark" ion-button icon-only (click)="changeSize(20)">
-          <ion-icon style="font-size: 1em" name="radio-button-on"></ion-icon>
-        </button>
-        <button color="dark" ion-button icon-only (click)="changeSize(50)">
-          <ion-icon style="font-size: 2em" name="radio-button-on"></ion-icon>
-        </button>
-        <button color="dark" ion-button icon-only (click)="changeSize(200)">
-          <ion-icon style="font-size: 3em" name="radio-button-on"></ion-icon>
-        </button>
-        <ion-button color="tertiary" (click)="zorionak()" id="cuadroHasi"
-          >Bukatu</ion-button
+      <ion-buttons
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        <button
+          ion-button
+          icon-only
+          (click)="changeSize(2)"
+          style="background-color: transparent"
         >
+          <ion-icon style="font-size: 10px" name="radio-button-on"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="changeSize(5)">
+          <ion-icon style="font-size: 20px" name="radio-button-on"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="changeSize(10)">
+          <ion-icon style="font-size: 30px" name="radio-button-on"></ion-icon>
+        </button>
       </ion-buttons>
+      <ion-button
+        color="tertiary"
+        (click)="zorionak()"
+        style="width: 100px; height: 30px; margin-bottom: 30px"
+        >Bukatu</ion-button
+      >
     </ion-toolbar>
     <div *ngIf="hideEska" class="bocadillo-cuadrado">
       <p id="testua">
@@ -59,5 +65,4 @@
         >Jarraitu</ion-button
       >
     </div>
-  </body></ion-content
->
+  </body></ion-content>
