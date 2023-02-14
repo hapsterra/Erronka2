@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as L from 'leaflet';
+import { Koordenadak } from '../interfaces/koordenadak';
+import { KoordenadakService } from '../services/koordenadak.service';
 
 @Component({
   selector: 'app-mapa',
@@ -10,16 +12,14 @@ import * as L from 'leaflet';
 export class MapaPage implements OnInit {
 
 
-  constructor(private router:Router) {}
+  constructor(private koordenadakService: KoordenadakService,private router:Router) {}
 
   static audioZurra = new Audio('../../assets/ZURRAKAPOTEA.mp3');
   static audioAstoak = new Audio('../../assets/LOS-BURROS.mp3');
   static audioMarien = new Audio('../../assets/MARIENEA.mp3');
   static audioSanfaust = new Audio('../../assets/SAN-FAUSTO.mp3');
   static audioAriz = new Audio('../../assets/ARIZKO-DORRETXEA.mp3');
-
-
-
+  koordenadak: Koordenadak[] = [];
    jif = document.getElementById('gif');
   hideButton=false;
   hideEska=false;
@@ -29,8 +29,11 @@ export class MapaPage implements OnInit {
   lat: number = 43.23773675894636;
   lng: number = -2.889767201301909;
   zoom: number = 16;
-  
+ 
+
   loadLeafletMap() {
+    this.koordenadakService.getKoordenadak().subscribe(data => {this.koordenadak = data; 
+      
     this.leafletMap = new L.Map('leafletMap');
 
     const self = this;
@@ -54,7 +57,10 @@ export class MapaPage implements OnInit {
       iconSize: [30, 40],
     });
 
-    let marker1 = L.marker([43.23773675894636, -2.889767201301909], { icon: icon1 }).on('click', () => { this.lekuaMarker1()}, this).addTo(
+    this.koordenadakService.getKoordenadak().subscribe(data => {this.koordenadak = data; },
+      error => console.log('Error::' + error));
+
+    let marker1 = L.marker([+this.koordenadak[0].lat, +this.koordenadak[0].lng], { icon: icon1 }).on('click', () => { this.lekuaMarker1()}, this).addTo(
       this.leafletMap      
     );
     var content1 = L.DomUtil.create('div','content1'),popup1 = L.popup().setContent(content1);
@@ -67,7 +73,7 @@ export class MapaPage implements OnInit {
     });
 
       
-        let marker2 = L.marker([43.23775412976203, -2.8939684222712314], { icon: icon1 }).on('click', () => { this.lekuaMarker2()}, this).addTo(
+        let marker2 = L.marker([+this.koordenadak[1].lat, +this.koordenadak[1].lng], { icon: icon1 }).on('click', () => { this.lekuaMarker2()}, this).addTo(
           this.leafletMap      
         );
         var content2 = L.DomUtil.create('div','content2'),popup2 = L.popup().setContent(content2);
@@ -80,7 +86,7 @@ export class MapaPage implements OnInit {
     });
 
 
-    let marker3 = L.marker([43.23411862816688, -2.8922257730479246], { icon: icon1 }).on('click', () => { this.lekuaMarker3()}, this).addTo(
+    let marker3 = L.marker([+this.koordenadak[2].lat, +this.koordenadak[2].lng], { icon: icon1 }).on('click', () => { this.lekuaMarker3()}, this).addTo(
       this.leafletMap      
     );
     var content3 = L.DomUtil.create('div','content3'),popup3 = L.popup().setContent(content3);
@@ -92,7 +98,7 @@ export class MapaPage implements OnInit {
 
     });
 
-    let marker4 = L.marker([43.23578635651078, -2.889453615374651], { icon: icon1 }).on('click', () => { this.lekuaMarker4()}, this).addTo(
+    let marker4 = L.marker([+this.koordenadak[3].lat, +this.koordenadak[3].lng], { icon: icon1 }).on('click', () => { this.lekuaMarker4()}, this).addTo(
       this.leafletMap      
     );
     var content4 = L.DomUtil.create('div','content4'),popup4 = L.popup().setContent(content4);
@@ -104,7 +110,7 @@ export class MapaPage implements OnInit {
 
     });
 
-    let marker5 = L.marker([43.23724169834896, -2.88073205955769], { icon: icon1 }).on('click', () => { this.lekuaMarker5()}, this).addTo(
+    let marker5 = L.marker([+this.koordenadak[4].lat, +this.koordenadak[4].lng], { icon: icon1 }).on('click', () => { this.lekuaMarker5()}, this).addTo(
       this.leafletMap      
     );
     var content5 = L.DomUtil.create('div','content5'),popup5 = L.popup().setContent(content5);
@@ -114,11 +120,16 @@ export class MapaPage implements OnInit {
       this.stopAudios(6)
       this.router.navigateByUrl('game5');
     });
+
+
+    
     marker1.bindPopup(popup1);
     marker2.bindPopup(popup2);
     marker3.bindPopup(popup3);
     marker4.bindPopup(popup4);
     marker5.bindPopup(popup5);
+  },
+      error => console.log('Error::' + error));
   }
 
   stopAudios(audi:number){

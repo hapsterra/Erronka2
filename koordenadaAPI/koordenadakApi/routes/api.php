@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\KoordenadakController;
+use App\Models\Koordenadak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KoordenadaController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,4 @@ use App\Http\Controllers\KoordenadaController;
 |
 */
 
-Route::apiResource('koordenada', KoordenadaController::class);
-
+Route::get('koordenadak',[KoordenadakController::class, 'index']);
