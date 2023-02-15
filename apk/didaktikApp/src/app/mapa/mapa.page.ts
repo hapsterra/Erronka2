@@ -29,10 +29,10 @@ export class MapaPage implements OnInit {
   lat: number = 43.23773675894636;
   lng: number = -2.889767201301909;
   zoom: number = 16;
- 
+  refresh = false;
 
   loadLeafletMap() {
-    this.koordenadakService.getKoordenadak().subscribe(data => {this.koordenadak = data; 
+    this.koordenadakService.getKoordenadak(this.refresh).subscribe(data => {this.koordenadak = data; 
       
     this.leafletMap = new L.Map('leafletMap');
 
@@ -57,7 +57,7 @@ export class MapaPage implements OnInit {
       iconSize: [30, 40],
     });
 
-    this.koordenadakService.getKoordenadak().subscribe(data => {this.koordenadak = data; },
+    this.koordenadakService.getKoordenadak(this.refresh).subscribe(data => {this.koordenadak = data; },
       error => console.log('Error::' + error));
 
     let marker1 = L.marker([+this.koordenadak[0].lat, +this.koordenadak[0].lng], { icon: icon1 }).on('click', () => { this.lekuaMarker1()}, this).addTo(
