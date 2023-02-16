@@ -30,6 +30,23 @@
     animation-duration: 0.4s
 }
 
+@mixin large {
+  @media only screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
@@ -72,13 +89,12 @@
     height: 200px;
     margin: auto;
   }
-  
+   
   .arr {
     cursor: pointer;
     width: 100px;
     height: 100px;
     text-align: center;
-    line-height: 100px;
     background: grey;
     color: white;
     font-size: 50px;
@@ -95,7 +111,20 @@
       transform: translate(0, 2px);
     }
     user-select: none;
+
+    @include large{
+      font-size:50px;
   }
+
+  @include medium{
+    width: 50px;
+    height: 50px;
+      font-size:20px;
+  }
+
+
+}
+  
   
   .up {
     position: relative;
