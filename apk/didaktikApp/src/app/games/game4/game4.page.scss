@@ -68,12 +68,7 @@
   }
 
 /* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+
 * { padding: 0; margin: 0; }
 #heading {
     text-align: center;
@@ -145,19 +140,7 @@
     text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white;
   }
   
-  .b {
-    color: blue;  
-    text-shadow: 0 0 10px blue, 0 0 10px blue, 0 0 10px blue, 0 0 10px blue;
-    font-size: 100px;
-    font-family: serif;
-  }
-  
-  .a {
-    color: yellow;
-    text-shadow: 0 0 10px yellow, 0 0 10px yellow, 0 0 10px yellow, 0 0 10px yellow;
-    font-size: 100px;
-    font-family: serif;
-  }
+
 #heading{ margin: 0 auto}
 #canvas { background: #99afa3; display: block; margin: 0 auto;         aspect-ratio:10/6;}
 #c { background: #eeeeee; display: block; margin: 0 auto; }
@@ -169,23 +152,7 @@
     cursor: pointer;
 }
 
-.modal-header {
-    padding: 2px 16px;
-    background-color: #41d9f4;
-    color: white;
-    text-align: center;
-    height : 50%;
-}
 
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color:#f4bc42;
-    color: white;
-    text-align: center;
-    height: 50%;
-}
 .bocadillo-cuadrado {
     position: relative;
     top:  40%;
